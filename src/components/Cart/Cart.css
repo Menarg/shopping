@@ -1,0 +1,13 @@
+section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.CartNumber {
+    margin-left: 0.5rem;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+}
