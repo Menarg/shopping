@@ -2,13 +2,12 @@ import './Header.css'
 import Logo from '../../assets/logo.png'
 import Cart from '../Cart/Cart'
 
-function Header () {
+function Header (props) {
 
     return (
         <header>
             <img src={Logo} />
-
-            <Cart />
+            <Cart cartamount = {props.cartamount}/>
         </header>
     )
 }
