@@ -5,24 +5,25 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [amount, setAmount] = useState(0);
-
   const [Products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('https://dummyjson.com/products');
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setProducts(data.products);
     }
   
     if (Products.length === 0) {
       fetchData();
-    } else {console.log(error)};
-  }, []); // körs bara vid sidladdning
+    } else {console.error();}
+  }, []); // körs bara vid sidladdning  
 
   const ProductComponents = Products.map((product) => {
-    return <Product title = {product.title} description = {product.description} key = {product.id} setAmount = {setAmount} amount = {amount} />
+    return <Product title = {product.title} description = {product.description} price ={product.price} img={product.images[0]} brand={product.brand} key = {product.id} setAmount = {setAmount} amount = {amount} />
+    
   });
 
   return (

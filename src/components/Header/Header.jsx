@@ -7,6 +7,7 @@ function Header (props) {
     return (
         <header>
             <img src={Logo} />
+            <h2 className='heading'>Company X</h2>
             <Cart cartamount = {props.cartamount}/>
         </header>
     )

@@ -1,19 +1,25 @@
 import './Product.css';
 
 function Product (props) {
+    
+    const { title, description, price, img, brand, key, setAmount, amount } = props; 
 
-    // console.log(Products.title);
-    const { title, description, setAmount, amount } = props; 
-
-    function handleClick() {
+    function addToCart() {
         setAmount(amount + 1);
     }
 
     return (
         <section className='Product'>
-            <h2>{ title }</h2>
-            <p>{ description }</p>
-            <button className='CartButton' onClick={handleClick}>Add to Cart</button>
+            <div className='productContent'>
+                <img className='productImg' src={img}></img>
+                <h3>{ title }</h3>
+                <p>{ brand }</p>
+                <p>${ price }</p>
+            </div>
+
+            <div className='buttonBox'>
+                <button className='CartButton' onClick={addToCart}>Add to Cart</button>
+            </div>
         </section>
     );
 }
