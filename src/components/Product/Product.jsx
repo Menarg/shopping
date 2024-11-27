@@ -5,7 +5,7 @@ function Product (props) {
     const { title, description, price, img, brand, key, setAmount, amount } = props; 
 
     function addToCart() {
-        setAmount(amount + 1);
+        setAmount(amount+1);
     }
 
     return (
