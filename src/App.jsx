@@ -1,30 +1,35 @@
-import { useNavigate } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Product from './components/Product/Product';
 import { useState, useEffect } from 'react';
+import { useCart } from './context/ProductContext';
 
 function App() {
-  const navigate = useNavigate();
-  const [amount, setAmount] = useState(0);
-  const [Products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [amount, setAmount] = useState();
+  const [products, setProducts] = useState([]);
+  const { cart } = useCart();
+  
+  useEffect(() => {
+    try {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } catch (error) {
+      console.log(error);
+    }
+    setAmount(cart.length)
+  }, [cart]);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('https://dummyjson.com/products');
       const data = await response.json();
-      // console.log(data);
       setProducts(data.products);
     }
-  
-    if (Products.length === 0) {
-      fetchData();
-    } else {console.error();}
-  }, []); // körs bara vid sidladdning  
 
-  const ProductComponents = Products.map((product) => {
-    return <Product title = {product.title} description = {product.description} price ={product.price} img={product.images[0]} brand={product.brand} key = {product.id} setAmount = {setAmount} amount = {amount} />
+    fetchData();
+  }, []); // This effect runs only once when the component mounts
+
+  const ProductComponents = products.map((product) => {
+    return <Product key = {product.id} {...product} />
   });
 
   return (

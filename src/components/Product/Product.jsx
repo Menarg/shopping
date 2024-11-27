@@ -1,25 +1,27 @@
+import { useNavigate } from 'react-router-dom';
 import './Product.css';
+import CartButton from './CartButton';
 
 function Product (props) {
+    const navigate = useNavigate();
+    const product = props;
+    console.log(product);
     
-    const { title, description, price, img, brand, key, setAmount, amount } = props; 
 
-    function addToCart() {
-        setAmount(amount+1);
+    function handleNavigate () {
+        navigate(`/ProductDetails/${product.title}`, { state: { product } });
     }
 
     return (
         <section className='Product'>
-            <div className='productContent'>
-                <img className='productImg' src={img}></img>
-                <h3>{ title }</h3>
-                <p>{ brand }</p>
-                <p>${ price }</p>
+            <div className='productContent' onClick={handleNavigate}>
+                <img className='productImg' src={product.images[0]}></img>
+                <h3>{ product.title }</h3>
+                <p>{ product.brand }</p>
+                <p>${ product.price }</p>
             </div>
 
-            <div className='buttonBox'>
-                <button className='CartButton' onClick={addToCart}>Add to Cart</button>
-            </div>
+            <CartButton product={props} />
         </section>
     );
 }

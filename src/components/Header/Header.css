@@ -7,7 +7,6 @@ header {
     padding-left: 10%;
     padding-right: 10%;
     max-width: 100%;
-    max-height: 15%;
 }
 
 .heading {
@@ -17,4 +16,12 @@ header {
 
 header h3 {
     color: #4d4c4c;
+}
+
+.checkout {
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px #8d8d8d;
+}
+.checkout:hover{
+    box-shadow: inset 0px 1px 6px #8d8d8d;
 }
