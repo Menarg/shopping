@@ -4,9 +4,7 @@ import CartButton from './CartButton';
 
 function Product (props) {
     const navigate = useNavigate();
-    const product = props;
-    console.log(product);
-    
+    const product = props;    
 
     function handleNavigate () {
         navigate(`/ProductDetails/${product.title}`, { state: { product } });

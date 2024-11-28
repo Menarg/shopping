@@ -18,7 +18,6 @@ function Checkout() {
     const totalPrice = cart.reduce((accumulator, product) => {
         // Check if the product is invalid or empty
         if (!product || Object.keys(product).length === 0) {
-            // console.log("Empty or invalid product:", product);
             return accumulator;
         }
         
