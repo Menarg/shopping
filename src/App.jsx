@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Product from './components/Product/Product';
 import { useState, useEffect } from 'react';
 import { useCart } from './context/ProductContext';
+import BackButton from './components/BackButton/BackButton';
 
 function App() {
   const [amount, setAmount] = useState();
@@ -35,6 +36,7 @@ function App() {
   return (
     <>
       <Header cartamount = {amount}/>
+      <BackButton />
       <section className='ProductPage'>
         { ProductComponents }
       </section>

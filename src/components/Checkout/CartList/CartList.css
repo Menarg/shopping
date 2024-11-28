@@ -1,0 +1,12 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    border: 1px solid #bcbcbc;
+    justify-content: center;
+}
+
+.productImg {
+    height: 80px;
+    width: 80px;
+}
